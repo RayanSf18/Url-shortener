@@ -1,7 +1,14 @@
 package com.rayan.urlshortener;
 
-public class App {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+import java.util.Map;
+
+public class App implements RequestHandler<Map<String, Object>, Map<String, String>> {
+
+    @Override
+    public Map<String, String> handleRequest(Map<String, Object> stringObjectMap, Context context) {
+        return null;
     }
 }
