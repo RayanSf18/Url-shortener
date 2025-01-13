@@ -24,7 +24,7 @@ public class App implements RequestHandler<Map<String, Object>, Map<String, Stri
             throw new RuntimeException("Error parsing JSON body: " + exception.getMessage(), exception);
         }
 
-        String originalUrl = bodyData.get("url");
+        String originalUrl = bodyData.get("originalUrl");
         String expirationTime = bodyData.get("expirationTime");
 
         String shortUrlCode = UUID.randomUUID().toString().substring(0, 8);
