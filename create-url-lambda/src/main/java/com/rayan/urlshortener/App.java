@@ -4,7 +4,9 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class App implements RequestHandler<Map<String, Object>, Map<String, String>> {
 
@@ -25,8 +27,11 @@ public class App implements RequestHandler<Map<String, Object>, Map<String, Stri
         String originalUrl = bodyData.get("url");
         String expirationTime = bodyData.get("expirationTime");
 
+        String shortUrlCode = UUID.randomUUID().toString().substring(0, 8);
 
+        Map<String, String> response = new HashMap<>();
+        response.put("code", shortUrlCode);
 
-        return null;
+        return response;
     }
 }
