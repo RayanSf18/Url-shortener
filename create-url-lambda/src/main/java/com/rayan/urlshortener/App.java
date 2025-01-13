@@ -14,6 +14,7 @@ public class App implements RequestHandler<Map<String, Object>, Map<String, Stri
 
     @Override
     public Map<String, String> handleRequest(Map<String, Object> request, Context context) {
+
         String body = (String) request.get("body");
 
         Map<String, String> bodyData;
@@ -27,11 +28,16 @@ public class App implements RequestHandler<Map<String, Object>, Map<String, Stri
         String originalUrl = bodyData.get("originalUrl");
         String expirationTime = bodyData.get("expirationTime");
 
+        long expirationTimeInSeconds = Long.parseLong(expirationTime) * 3600;
+
         String shortUrlCode = UUID.randomUUID().toString().substring(0, 8);
+
+        UrlData urlData = new UrlData(originalUrl, expirationTimeInSeconds);
 
         Map<String, String> response = new HashMap<>();
         response.put("code", shortUrlCode);
 
         return response;
+
     }
 }
