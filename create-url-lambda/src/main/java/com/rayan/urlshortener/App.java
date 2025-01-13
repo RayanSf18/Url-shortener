@@ -33,7 +33,7 @@ public class App implements RequestHandler<Map<String, Object>, Map<String, Stri
         String originalUrl = bodyData.get("originalUrl");
         String expirationTime = bodyData.get("expirationTime");
 
-        long expirationTimeInSeconds = Long.parseLong(expirationTime) * 3600;
+        long expirationTimeInSeconds = Long.parseLong(expirationTime);
 
         String shortUrlCode = UUID.randomUUID().toString().substring(0, 8);
 
