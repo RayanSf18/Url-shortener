@@ -16,7 +16,9 @@
 <h2 id="architecture">Architecture</h2>
 The system is composed of two lambda functions, the first function being responsible for generating and storing the shortened links in an S3 bucket, with information such as the original URL and expiration time. The second function manages the redirection by checking the short URL code and validating that the URL remains within the expiration date before redirecting the user.
 
-
+<p align="center">
+  <img src="assets/Arquitetura.png" alt="Arquitetura" />
+</p>
 
 <h2 id="functionalities">Functionalities</h2>
 
